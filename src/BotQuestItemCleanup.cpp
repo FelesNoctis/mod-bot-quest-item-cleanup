@@ -114,7 +114,8 @@ public:
             return;
 
         WorldSession* session = player->GetSession();
-        if (!session || !session->IsHeadless())
+        // if (!session || !session->IsHeadless())
+        if (!session || session->GetSocket() != nullptr)
             return;
 
         uint32 itemId = quest->GetSrcItemId();
