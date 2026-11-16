@@ -35,6 +35,7 @@
 #include "ScriptMgr.h"
 #include "WorldScript.h"
 #include "WorldSession.h"
+#include "Playerbots.h"
 
 #include <atomic>
 
@@ -115,7 +116,8 @@ public:
 
         WorldSession* session = player->GetSession();
         // if (!session || !session->IsHeadless())
-        if (!session || session->GetSocket() != nullptr)
+        // if (!session || session->GetSocket() != nullptr)
+        if (!sPlayerbotsMgr->GetPlayerbotAI(player))
             return;
 
         uint32 itemId = quest->GetSrcItemId();
